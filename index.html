@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>JoyVASA</title>
+  <link rel="icon" type="image/x-icon" href="./static/images/JoyType.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <style>
+        table {
+          width: auto; /* 设置表格宽度为75% */
+          margin-left: auto; /* 自动左边距 */
+          margin-right: auto; /* 自动右边距 */
+          border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* 只在标题行的上下加水平线 */
+        thead {
+            border-top: 2px solid black; /* 第一行上方 */
+            border-bottom: 2px solid black; /* 第一行下方 */
+        }
+        /* 最后一行下方加水平线 */
+        tbody tr:last-child {
+            border-bottom: 2px solid black; /* 最后一行下方 */
+        }
+        /* 其他行不加水平线 */
+        tbody tr {
+            border-bottom: none;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+#nav-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+#project-nav-container {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.home-link {
+  margin-right: 10px;
+}
+
+.house-icon {
+  fill: #333;
+  transition: fill 0.3s ease;
+  width: 24px;
+  height: 24px;
+}
+
+.house-icon:hover {
+  fill: #0366d6;
+}
+.select-wrapper::after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px;
+  color: #333;
+}
+.select-wrapper {
+  position: relative;
+  margin-left: 10px;
+}
+.video-carousel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-container {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.video-wrapper {
+  flex: 0 0 33.33%;
+  padding: 0 10px;
+}
+.video-wrapper2 {
+  flex: 0 0 33.33%;
+  padding: 0 10px;
+}
+video {
+  width: 100%;
+}
+
+
+button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+#project-nav {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  padding: 5px 30px 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  max-width: 800px; /* 根据需要调整 */
+  margin: 0 auto;
+}
+
+.video-container {
+  width: 100%;
+  overflow: hidden;
+  /* 其他视频容器样式 */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* 调整按钮与视频之间的距离 */
+}
+.home-link {
+  margin-top: 10px; /* 向下移动 */
+  margin-left: 60px; /* 向右移动 */
+}
+
+.prev-btn, .next-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: #e0e0e0;
+}
+/* .carousel-container {
+  width: 135%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+} */
+.carousel-container {
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 10px 0; /* 添加上下内边距 */
+  box-sizing: border-box;
+  text-align: center; /* 使内部内联元素居中 */
+}
+.video-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.video-container2 {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* 确保视频容器宽度与图片容器一致 */
+.video-wrapper-0 {
+  flex: 0 0 90%; /* 与图片容器宽度一致 */
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin: 0 auto; /* 居中显示 */
+}
+
+/* 确保视频自适应宽度 */
+.video-wrapper-0 video {
+  width: 100%; /* 视频自适应容器宽度 */
+  height: auto; /* 保持纵横比 */
+}
+
+
+
+.video-wrapper {
+  flex: 0 0 33.333%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.video-wrapper2 {
+  flex: 0 0 33.333%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+video {
+  width: 100%;
+  height: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.prev-btn, .next-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.video-wrapper {
+    display: none;
+  }
+  .video-wrapper2{
+    display: none;
+  }
+  .video-wrapper.active {
+    display: inline-block;
+  }
+  .video-wrapper2.active {
+    display: inline-block;
+  }
+  .video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .video-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+.prev-btn:hover, .next-btn:hover {
+  background-color: #e0e0e0;
+}
+.video-container {
+  display: flex;
+  justify-content: center; /* 或 flex-start, flex-end 等，根据需要调整 */
+  align-items: center;
+}
+.video-container2 {
+  display: flex;
+  justify-content: center; /* 或 flex-start, flex-end 等，根据需要调整 */
+  align-items: center;
+}
+
+.demo-video {
+  width: 8%;
+  min-width: 1100px;
+  max-width: 1400px;
+}
+.video-wrapper2 {
+    display: none;
+  }
+
+
+  .video-wrapper2 {
+    display: none;
+  }
+  .video-wrapper2.active {
+    display: inline-block;
+  }
+  .video-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  </style>
+</head>
+
+<body>
+
+  <div id="nav-wrapper">
+    <div id="project-nav-container">
+      <a href="https://github.com/jdh-algo" title="GitHub主页" class="home-link">
+        <svg class="house-icon" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </a>
+      <div class="select-wrapper">
+        <select id="project-nav" onchange="location = this.value;">
+          <option value="">More Research</option>
+          <option value="https://jdh-algo.github.io/JoyHallo/">JoyHallo</option>
+          <option value="https://jdh-algo.github.io/JoyType/">JoyType</option>
+          <option value="https://jdh-algo.github.io/JoyVASA/">JoyVASA</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title" style="text-align: left;">JoyVASA: Portrait and Animal Image Animation with Diffusion-Based Audio-Driven Facial Dynamics and Head Motion Generation</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a target="_blank">Xuyang Cao</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a target="_blank">Sheng Shi</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a target="_blank">Zhao Jun</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a target="_blank">Yang Yao</a><sup>1</sup></span>
+              <span class="author-block">
+                <a target="_blank">Jintao Fei</a><sup>1</sup></span>
+              <span class="author-block">
+                <a target="_blank">Minyu Gao</a><sup>1</sup></span>
+              <span class="author-block">
+                <a target="_blank">Guoxin Wang</a><sup>1,2</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <sup>1</sup> <span class="author-block">JD Health International Inc.</span> &nbsp;&nbsp;
+              <sup>2</sup> <span class="author-block">Zhejiang University</span> &nbsp;&nbsp;
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2409.13268" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+
+                <span class="link-block">
+                  <a href="" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/jdh-algo/JoyVASA" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- huggingface model Link -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/jdh-algo/JoyVASA" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="./static/images/hf-logo.png">
+                    </span>
+                    <span>HuggingFace</span>
+                  </a>
+                </span>
+
+                <!-- huggingface demo Link
+                <span class="link-block">
+                  <a href="https://huggingface.co/spaces/jdh-algo/JoyHallo" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="./static/images/hf-logo.png">
+                    </span>
+                    <span>Gradio</span>
+                  </a>
+                </span> -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Paper abstract -->
+  <section class="section" style="margin-bottom: 10px; padding: 5px;">
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">    
+    <div class="content has-text-justified">
+        <div class="content has-text-justified">
+        <div class="content has-text-justified">
+          <div class="carousel-container">
+            <div class="video-container2">
+              <div class="video-wrapper-0 ">
+                <video controls>
+                  <source src=" " type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="section" style="margin-bottom: 10px; padding: 5px;">
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4" style="text-align: left;" >Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We propose JoyVASA, a diffusion-based method for generating facial dynamics and head motion in audio-driven facial animation. 
+              Specifically, in the first stage, we introduce a decoupled facial representation framework that separates dynamic facial expressions 
+              from static 3D facial representations. This decoupling allows the system to generate longer videos by combining any static 3D facial 
+              representation with dynamic motion sequences. Then, in the second stage, a diffusion transformer is trained to generate motion sequences 
+              directly from audio cues, independent of character identity. Finally, a generator trained in the first stage uses the 3D facial representation 
+              and the generated motion sequences as inputs to render high-quality animations. With the decoupled facial representation and the identity-independent 
+              motion generation process, JoyVASA extends beyond human portraits to animate animal faces seamlessly. The model is trained on a hybrid dataset of 
+              private Chinese and public English data, enabling multilingual support. Experimental results validate the effectiveness of our approach. Future 
+              work will focus on improving real-time performance and refining expression control, further expanding the framework’s applications in portrait animation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+
+  <!-- Paper Method -->
+  <section class="section" style="margin-bottom: 10px; padding: 5px;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4" style="text-align: left;" >Method</h2>
+          <div class="content has-text-justified">
+            <p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <img src="./static/images/pipeline_inference.png" style="display: block; margin: 0 auto; width: 100%; max-width: 100%; height: auto;">
+          <br>
+          <div class="content has-text-justified">
+            <p>
+              <b> Inference Pipeline of the proposed JoyVASA. </b> Given a reference image, we first extract the corresponding 3D facial appearance feature using the 
+              appearance encoder, and the learned motion information using the motion encoder. For the input speech, the audio features are initially extracted using the 
+              wav2vec2 encoder. The audio-driven motion sequences are then sampled using the diffusion model trained in the second stage in a sliding window fashion. 
+              Using the canonical source keypoints and the sampled target motion sequences, the target keypoints are computed. Finally, the 3D facial appearance feature 
+              is warped based on the source and target keypoints and rendered by a generator to produce the final output video.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container is-max-desktop"> 
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <img src="./static/images/pipeline_train.png" style="display: block; margin: 0 auto; width: 100%; max-width: 100%; height: auto;">
+        
+          <div class="content has-text-justified">
+            <p>
+              <b> Training process of the audio-driven motion sequence generation. </b> The audio feature and real motion sequences are first extracted with the frozen wav2vec2 
+              and the frozen motion encoder in Liveportrait. Then a diffusion transformer model is trained to sample the clean motion sequence from noise.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Paper Method -->
+
+  <!-- Paper Experiment -->
+  <section class="section" style="margin-bottom: 10px; padding: 5px;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4" style="text-align: left;">Visualization Results</h2>
+          <br>
+
+          <!-- <h4 class="title is-4" style="text-align: left;">Mandarin</h4> -->
+          <!-- <div class="content has-text-justified">
+            <h4 class="title is-4" style="text-align: center;">Mandarin Speech</h4>
+            <div class="content has-text-justified">
+              <div class="carousel-container">
+                <div class="video-container">
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo/1_0.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo/6_0.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo/7_1.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo/4_0.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo/3_0.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo/5_1.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+          </div> -->
+
+          <!-- <div class="content has-text-justified">
+            <h4 class="title is-4" style="text-align: center;">Mandarin Song</h4>
+            <div class="content has-text-justified">
+              <div class="carousel-container">
+                <div class="video-container">
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo/4_6.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo-en/0_s7_7.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-wrapper active">
+                    <video controls>
+                      <source src="./static/joyhallo-en/0_s6_7.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+              
+      <div class="content has-text-justified">
+        <!-- <h4 class="title is-4" style="text-align: center;">English Speech</h4>
+        <div class="content has-text-justified">
+          <div class="carousel-container">
+            <div class="video-container">
+              <div class="video-wrapper active">
+                <video controls>
+                  <source src="./static/joyhallo-en/5_3.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-wrapper active">
+                <video controls>
+                  <source src="./static/joyhallo-en/7_2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-wrapper active">
+                <video controls>
+                  <source src="./static/joyhallo-en/s7_2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+          <div class="content has-text-justified">
+          <!-- <h4 class="title is-4" style="text-align: center;"> </h4> -->
+          <div class="content has-text-justified">
+            <div class="carousel-container">
+              <div class="video-container2">
+            
+                <div class="video-wrapper2 active">
+                  <video controls>
+                    <source src=" " type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-wrapper2 active">
+                  <video controls>
+                    <source src=" " type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-wrapper2 active">
+                  <video controls>
+                    <source src=" " type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-wrapper2 ">
+                  <video controls>
+                    <source src=" " type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="button-container">
+                <button class="prev-btn">←</button>
+                <button class="next-btn">→</button>
+              </div>
+            </div>
+        </div>
+      </div>
+      </div>
+
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <!-- <br> -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-3">Improved aesthetics quality</h2>
+        <h3 class="title is-4" style="text-align: center;">User study results</h3> -->
+        <!-- <h6 class="title is-6" style="text-align: center;">Table 2. Performance on less recognizable artistic fonts</h6>
+        <img src="./static/images/experiments/exps-1.svg" style="width: 100%;"> -->
+        <!-- <img src="./static/assets/v2_vs_dalle.png" alt="v2_vs_dalle" style="width: 80%;"> -->
+      </div>
+    </div>
+
+   
+
+    <section class="section" style="margin-bottom: 10px; padding: 5px;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <br>
+          <h2 class="title is-4" style="text-align: left;">Comparison with Existing Methods</h2>
+          <div class="content has-text-justified">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h6 class="title is-6" style="text-align: center;"> Table 1. Comparison with existing methods on the celebv-HQ test dataset.</h6>
+        <table>
+          <thead>
+              <tr>
+                  <th>Method</th>
+                  <th>IQA (%) ↑</th>
+                  <th>VQA (%) ↑</th>
+                  <th>Sync-C ↑</th>
+                  <th>Sync-D ↓</th>
+                  <th>FVD-25 ↓</th>
+                  <th>Smooth (%) ↑</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>EchoMimic</td>
+                  <td>64.46</td>
+                  <td>68.85</td>
+                  <td>4.60</td>
+                  <td>13.90</td>
+                  <td>904.07</td>
+                  <td>99.44</td>
+              </tr>
+              <tr>
+                  <td>Aniportrait</td>
+                  <td><b>74.85</b></td>
+                  <td><b>78.00</b></td>
+                  <td>1.98</td>
+                  <td><b>13.28</b></td>
+                  <td><b>623.00</b></td>
+                  <td><b>99.66</b></td>
+              </tr>
+              <tr>
+                  <td>Hallo</td>
+                  <td>68.83</td>
+                  <td>72.95</td>
+                  <td>6.25</td>
+                  <td>14.05</td>
+                  <td>558.96</td>
+                  <td>99.47</td>
+              </tr>
+              <tr>
+                  <td>JoyHallo</td>
+                  <td>69.15</td>
+                  <td>74.00</td>
+                  <td><b>6.36</b></td>
+                  <td>14.23</td>
+                  <td>755.61</td>
+                  <td>99.38</td>
+              </tr>
+              <tr>
+                  <td>Ours</td>
+                  <td>68.97</td>
+                  <td>72.42</td>
+                  <td>4.85</td>
+                  <td>13.53</td>
+                  <td><b>459.04</b></td>
+                  <td>99.60</td>
+              </tr>
+          </tbody>
+      </table>
+
+
+        <div class="content has-text-justified">
+        </div>
+        <h6 class="title is-6" style="text-align: center;">Table 2. Comparison with existing methods on Openset dataset.</h6>        
+        <table>
+          <thead>
+              <tr>
+                  <th>Method</th>
+                  <th>IQA (%)↑</th>
+                  <th>VQA (%) ↑</th>
+                  <th>Sync-C ↑</th>
+                  <th>Sync-D ↓</th>
+                  <th>Smooth (%) ↑</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>EchoMimic</td>
+                  <td>75.66</td>
+                  <td>82.73</td>
+                  <td>4.12</td>
+                  <td><b>13.79</b></td>
+                  <td>99.20</td>
+              </tr>
+              <tr>
+                  <td>Aniportrait</td>
+                  <td><b>81.84</b></td>
+                  <td><b>87.62</b></td>
+                  <td>2.67</td>
+                  <td>14.09</td>
+                  <td><b>99.55</b></td>
+              </tr>
+              <tr>
+                  <td>Hallo</td>
+                  <td>75.37</td>
+                  <td>83.85</td>
+                  <td>5.39</td>
+                  <td>13.91</td>
+                  <td>99.33</td>
+              </tr>
+              <tr>
+                  <td>JoyHallo</td>
+                  <td>73.87</td>
+                  <td>84.09</td>
+                  <td><b>5.91</b><s/td>
+                  <td>14.11</td>
+                  <td>99.32</td>
+              </tr>
+              <tr>
+                  <td>Ours</td>
+                  <td>71.45</td>
+                  <td>77.78</td>
+                  <td>5.72</td>
+                  <td>14.01</td>
+                  <td>99.48</td>
+              </tr>
+          </tbody>
+      </table>
+        <div class="content has-text-justified">
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+ 
+
+  <!-- BibTex citation -->
+  <section class="section" id="BibTeX" style="margin-bottom: 10px; padding: 5px;">
+    <div class="container is-max-desktop"> 
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4" style="text-align: left;">BibTeX</h2> 
+          <div class="content has-text-justified">
+            <pre>
+              <!-- <code>
+              @misc{shi2024joyhallo,
+              title={JoyHallo: Digital human model for Mandarin}, 
+              author={Sheng Shi and Xuyang Cao and Jun Zhao and Guoxin Wang},
+              year={2024},
+              eprint={2409.13268},
+              archivePrefix={arXiv},
+              primaryClass={cs.CV},
+              url={https://arxiv.org/abs/2409.13268}, }
+              </code> -->
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+  <!--End BibTex citation
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+
+<script>
+ const videoWrappers = document.querySelectorAll('.video-wrapper2');
+  let currentIndex = 0;
+  const videosToShow = 3;
+
+  function updateVideos() {
+    videoWrappers.forEach((video, index) => {
+      video.classList.remove('active');
+      if (index >= currentIndex && index < currentIndex + videosToShow) {
+        video.classList.add('active');
+      }
+    });
+  }
+
+  document.querySelector('.prev-btn').addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : videoWrappers.length - videosToShow;
+    updateVideos();
+  });
+
+  document.querySelector('.next-btn').addEventListener('click', () => {
+    currentIndex = (currentIndex < videoWrappers.length - videosToShow) ? currentIndex + 1 : 0;
+    updateVideos();
+  });
+
+  updateVideos();
+
+
+</script>
+
+</body>
+
+</html>
