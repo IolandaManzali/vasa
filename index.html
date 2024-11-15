@@ -353,6 +353,8 @@ video {
               <span class="author-block">
                 <a target="_blank">Xuyang Cao</a><sup>1</sup>,</span>
               <span class="author-block">
+                <a target="_blank">Guoxin Wang</a><sup>1,2</sup></span>
+              <span class="author-block">
                 <a target="_blank">Sheng Shi</a><sup>1</sup>,</span>
               <span class="author-block">
                 <a target="_blank">Zhao Jun</a><sup>1</sup>,</span>
@@ -362,8 +364,6 @@ video {
                 <a target="_blank">Jintao Fei</a><sup>1</sup></span>
               <span class="author-block">
                 <a target="_blank">Minyu Gao</a><sup>1</sup></span>
-              <span class="author-block">
-                <a target="_blank">Guoxin Wang</a><sup>1,2</sup></span>
             </div>
 
             <div class="is-size-5 publication-authors">
@@ -470,7 +470,9 @@ video {
           <h2 class="title is-4" style="text-align: left;" >Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We propose JoyVASA, a diffusion-based method for generating facial dynamics and head motion in audio-driven facial animation. 
+              Audio-driven portrait animation has made significant advances with diffusion-based models, improving video quality and lipsync accuracy. However, 
+              the increasing complexity of these models has led to inefficiencies in training and inference, as well as constraints on video length and inter-frame continuity. 
+              In this paper,  we propose JoyVASA, a diffusion-based method for generating facial dynamics and head motion in audio-driven facial animation. 
               Specifically, in the first stage, we introduce a decoupled facial representation framework that separates dynamic facial expressions 
               from static 3D facial representations. This decoupling allows the system to generate longer videos by combining any static 3D facial 
               representation with dynamic motion sequences. Then, in the second stage, a diffusion transformer is trained to generate motion sequences 
@@ -510,11 +512,10 @@ video {
           <br>
           <div class="content has-text-justified">
             <p>
-              <b> Inference Pipeline of the proposed JoyVASA. </b> Given a reference image, we first extract the corresponding 3D facial appearance feature using the 
-              appearance encoder, and the learned motion information using the motion encoder. For the input speech, the audio features are initially extracted using the 
-              wav2vec2 encoder. The audio-driven motion sequences are then sampled using the diffusion model trained in the second stage in a sliding window fashion. 
-              Using the canonical source keypoints and the sampled target motion sequences, the target keypoints are computed. Finally, the 3D facial appearance feature 
-              is warped based on the source and target keypoints and rendered by a generator to produce the final output video.
+              <b> Inference Pipeline of the proposed JoyVASA. </b> Given a reference image, we first extract the 3D facial appearance feature using the appearance encoder in LivePortrait, 
+              and also a series of learned 3D keypoints using the motion encoder. For the input speech, the audio features are initially extracted using the wav2vec2 encoder. The audio-driven 
+              motion sequences are then sampled using a diffusion model trained in the second stage in a sliding window fashion. Using the 3D keypoints of reference image, and the sampled target 
+              motion sequences, the target keypoints are computed. Finally, the 3D facial appearance feature is warped based on the source and target keypoints and rendered by a generator to produce the final output video.
             </p>
           </div>
         </div>
